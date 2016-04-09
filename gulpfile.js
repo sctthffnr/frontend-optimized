@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
 var htmlMin = require('gulp-htmlmin');
 var imageResize = require('gulp-image-resize');
+var imageMin = require('gulp-imagemin');
 
 gulp.task('minify-css', function() {
   gulp.src('src/css/*.css')
@@ -18,11 +19,15 @@ gulp.task('minify-html', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('resize-image', function() {
+gulp.task('resize-and-compress', function() {
   gulp.src('src/views/images/pizzeria.jpg')
     .pipe(imageResize({
-      width: 256,
-      height: 192
+      width: 128,
+      height: 96
     }))
+    .pipe(imageMin({progressive: true}))
     .pipe(gulp.dest('dist/views/images/'));
+  gulp.src('src/img/*')
+    .pipe(imageMin({}))
+    .pipe(gulp.dest('dist/img'));
 });
