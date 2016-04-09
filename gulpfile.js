@@ -3,6 +3,7 @@ var cleanCSS = require('gulp-clean-css');
 var htmlMin = require('gulp-htmlmin');
 var imageResize = require('gulp-image-resize');
 var imageMin = require('gulp-imagemin');
+var uglify = require('gulp-uglify');
 
 gulp.task('minify-css', function() {
   gulp.src('src/css/*.css')
@@ -32,5 +33,14 @@ gulp.task('resize-and-compress', function() {
     .pipe(gulp.dest('dist/img'));
   gulp.src('src/views/images/pizza.png')
     .pipe(imageMin({})
-    .pipe(gulp.dest('dist/views/images/')));
+    .pipe(gulp.dest('dist/views/images/j')));
+});
+
+gulp.task('uglify-js', function() {
+  gulp.src('src/js/*')
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
+  gulp.src('src//views/js/*')
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/views/js'));
 });
