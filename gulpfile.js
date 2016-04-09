@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
-var htmlMin = require('gulp-htmlmin')
+var htmlMin = require('gulp-htmlmin');
 
 gulp.task('minify-css', function() {
   gulp.src('src/css/*.css')
