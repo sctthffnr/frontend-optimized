@@ -30,4 +30,7 @@ gulp.task('resize-and-compress', function() {
   gulp.src('src/img/*')
     .pipe(imageMin({}))
     .pipe(gulp.dest('dist/img'));
+  gulp.src('src/views/images/pizza.png')
+    .pipe(imageMin({})
+    .pipe(gulp.dest('dist/views/images/pizza.png')));
 });
