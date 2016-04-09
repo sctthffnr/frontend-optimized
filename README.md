@@ -16,3 +16,5 @@ the loop:
 Then, I used this variable in the original line of code:
 
 `var phase = Math.sin((scrollTop / 1250) + (i % 5));`
+
+Added `will-change: transform` to mover class in style.css
