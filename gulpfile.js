@@ -35,7 +35,7 @@ gulp.task('resize-and-compress', function() {
     .pipe(gulp.dest('dist/img'));
   gulp.src('src/views/images/pizza.png')
     .pipe(imageMin({})
-    .pipe(gulp.dest('dist/views/images/j')));
+    .pipe(gulp.dest('dist/views/images/')));
 });
 
 gulp.task('uglify-js', function() {
@@ -62,3 +62,6 @@ gulp.task('inline-css', function() {
     }))
     .pipe(gulp.dest('dist/'));
 });
+
+gulp.task('default', ['minify-css', 'minify-html', 'resize-and-compress',
+           'uglify-js', 'inline-css']);
