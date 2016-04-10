@@ -4,6 +4,7 @@ var htmlMin = require('gulp-htmlmin');
 var imageResize = require('gulp-image-resize');
 var imageMin = require('gulp-imagemin');
 var uglify = require('gulp-uglify');
+var inlineCSS = require('gulp-inline-css');
 
 gulp.task('minify-css', function() {
   gulp.src('src/css/*.css')
@@ -43,4 +44,10 @@ gulp.task('uglify-js', function() {
   gulp.src('src//views/js/*')
     .pipe(uglify())
     .pipe(gulp.dest('dist/views/js'));
+});
+
+gulp.task('inline-css', function() {
+  gulp.src('src/*.html')
+    .pipe(inlineCSS())
+    .pipe(gulp.dest('dist/'));
 });
