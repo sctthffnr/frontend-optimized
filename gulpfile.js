@@ -5,6 +5,7 @@ var imageResize = require('gulp-image-resize');
 var imageMin = require('gulp-imagemin');
 var uglify = require('gulp-uglify');
 var inlineCSS = require('gulp-inline-css');
+var deleteLines = require('gulp-delete-lines');
 
 gulp.task('minify-css', function() {
   gulp.src('src/css/*.css')
@@ -48,6 +49,16 @@ gulp.task('uglify-js', function() {
 
 gulp.task('inline-css', function() {
   gulp.src('src/*.html')
-    .pipe(inlineCSS())
+    .pipe(inlineCSS({removeLinkTags: false}))
+    .pipe(deleteLines({
+      'filters' : [
+        /style\.css/i
+      ]
+    }))
+    .pipe(deleteLines({
+      'filters' : [
+        /google-fonts\.css/i
+      ]
+    }))
     .pipe(gulp.dest('dist/'));
 });
