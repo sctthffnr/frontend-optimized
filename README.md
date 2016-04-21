@@ -1,5 +1,12 @@
 # Optimized Web Pages
 
+## Building project
+
+The project contains an src and dist directory. To build the project for production,
+install the modules located in the package.json file:
+
+`npm install`
+
 ## PageSpeed Task
 
 To achieve a PageSpeed Insights score greater than 90 for both mobile and desktop
