@@ -27,7 +27,7 @@ To view the project, open dist/index.html in a web browser.
 To achieve a PageSpeed Insights score greater than 90 for both mobile and desktop
 platforms, I created a number of gulp tasks to do the following:
 
-- minifiy css
+- minify css
 - minify html
 - resize and compress images
 - inline css (to remove render blocking)
