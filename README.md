@@ -1,11 +1,22 @@
 # Optimized Web Pages
 
-## Building project
+## Building the project
 
-The project contains an src and dist directory. To build the project for production,
-install the modules located in the package.json file:
+The project contains src and dist directories. Gulp tasks perform a number of
+optimizations to the code in the src directory to prepare the code for production use.
+
+Before running the gulp tasks to build the project, install the modules located
+in the package.json file:
 
 `npm install`
+
+Next, run the gulp task:
+
+`gulp`
+
+Once this is done, the dist directory will contain the files for production use.
+
+To view the project, open dist/index.html in a web browser.
 
 ## PageSpeed Task
 
