@@ -10,7 +10,11 @@ in the package.json file:
 
 `npm install`
 
-Next, run the gulp task:
+Next, install the gulp-cli tools:
+
+`npm install gulp-cli`
+
+Finally, run the gulp task:
 
 `gulp`
 
