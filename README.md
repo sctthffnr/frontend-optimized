@@ -65,3 +65,36 @@ no purpose since the user could not see them.
 I found that 20 pizzas was sufficient to create the desired effect:
 
 `for (var i = 0; i < 20; i++)`
+
+### Better pizza resizing
+
+The original code for the chanagePizzaSizes function was:
+
+```
+function changePizzaSizes(size) {
+  for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+  }
+}
+```
+There were a number of lines in the loop that forced the browser to recalculate layout.
+Since these modifications and calculations only needed to be done once for the entire
+function, I moved them out of the loop:
+
+```
+function changePizzaSizes(size) {
+  var pizzas = document.querySelectorAll(".randomPizzaContainer");
+  var pizza = pizzas[0];
+  var pizzaOffset = pizza.offsetWidth;
+  var dx = determineDx(pizza, size);
+  for (var i = 0; i < pizzas.length; i++) {
+    var newwidth = (pizzaOffset + dx) + 'px';
+    pizzas[i].style.width = newwidth;
+  }
+}
+```
+
+Now the loop only contains a single line of code that forces the browser to recalculate
+layout.
