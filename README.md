@@ -2,6 +2,15 @@
 
 ## Building the project
 
+### Dependencies
+
+To run the gulp tasks, you must have the following installed on your system:
+
+- [GraphicsMagick](http://www.graphicsmagick.org/)
+- [Node and npm](https://nodejs.org/en/)
+
+### Build Instructions
+
 The project contains src and dist directories. Gulp tasks perform a number of
 optimizations to the code in the src directory to prepare the code for production use.
 
@@ -12,7 +21,7 @@ in the package.json file:
 
 Next, install the gulp-cli tools:
 
-`npm install gulp-cli`
+`npm install -g gulp-cli`
 
 Finally, run the gulp task:
 
